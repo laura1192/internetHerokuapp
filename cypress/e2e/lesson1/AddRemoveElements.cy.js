@@ -17,6 +17,7 @@ describe("Add/Remove Elements", () => {
         cy.get(LOCATORS.heading).should("contain", basePage.NAMES.basePageTitle);
         cy.contains ('Add/Remove Elements').click();
         // cy.get(LOCATORS.example).find('button').click()
+        
         cy.get(LOCATORS.example).find('button').then((btn)=>{
             cy.wrap(btn).click();
         cy.get('#elements').find('button').should('be.visible').and('contain', 'Delete')
