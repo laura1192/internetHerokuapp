@@ -3,6 +3,7 @@ class DropdownPage {
       dropdownPageLink:"Dropdown",
       dropdownPageTitle: "Dropdown List",
       linkName:"dropdown",
+      
     };
     LOCATORS = {
         dropdown: "#dropdown",

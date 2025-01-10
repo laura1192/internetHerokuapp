@@ -13,8 +13,4 @@ describe("Broken Images", () => {
     cy.get(LOCATORS.example).find("img").should("be.visible");
     cy.get(LOCATORS.example).find("img").should("have.length", 3);
   });
-
 });
-
-
-

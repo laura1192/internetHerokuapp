@@ -1,7 +1,10 @@
 const { challengingDomPage } = require("../../pages/ChallengingDom");
+const { COLORS } = require("../../utils/colors");
 const { LOCATORS } = require("../../utils/locators");
 
 const myRowCount = 10
+const myColomnCount = 7
+
 describe("Challenging DOM", () => {
   it("Verify 'Challenging Dom' page", () => {
     cy.visit("/");
@@ -12,9 +15,9 @@ describe("Challenging DOM", () => {
   it("Verify Button's colors", () => {
     cy.visit("/");
     cy.contains(challengingDomPage.NAMES.challengingDomTitle).click();
-    cy.get(".large-2").find("a").first().should("have.css", "background-color", "rgb(43, 166, 203)");
-    cy.get(".large-2").find("a").eq("1").should("have.css", "background-color","rgb(198, 15, 19)");
-    cy.get (".large-2").find("a").last().should("have.css", "background-color", "rgb(93, 164, 35)");
+    cy.get(".large-2").find("a").first().should("have.css", "background-color",COLORS.blueColor);
+    cy.get(".large-2").find("a").eq("1").should("have.css", "background-color",COLORS.redColor);
+    cy.get (".large-2").find("a").last().should("have.css", "background-color",COLORS.greenColor);
     
   });
 
@@ -27,19 +30,26 @@ describe("Challenging DOM", () => {
     cy.url().should("include", "#delete");
     
   })
-  it.only("Verify row's count", () => {
+  it("Verify row's count", () => {
     cy.visit("/");
     cy.contains(challengingDomPage.NAMES.challengingDomTitle).click();
    
     cy.get(".large-10").find('table').find ("tbody").find("tr").should("have.length", myRowCount)
 
   })
-  it.only("Verify colums", () => {
+  it("Verify colums", () => {
     cy.visit("/");
     cy.contains(challengingDomPage.NAMES.challengingDomTitle).click();
    
     cy.get(".large-10").find('table').find ("thead").find("tr").find("th").should("contain", "Sit")
 
   })
+})
+  it("Verify columns' count", () => {
+    cy.visit("/");
+    cy.contains(challengingDomPage.NAMES.challengingDomTitle).click();
+   
+    cy.get(".large-10>table>thead>tr>th").should("have.length", myColomnCount)
+
   });
 
