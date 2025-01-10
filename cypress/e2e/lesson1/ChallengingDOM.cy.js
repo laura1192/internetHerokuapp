@@ -15,9 +15,9 @@ describe("Challenging DOM", () => {
   it("Verify Button's colors", () => {
     cy.visit("/");
     cy.contains(challengingDomPage.NAMES.challengingDomTitle).click();
-    cy.get(".large-2").find("a").first().should("have.css", "background-color",COLORS.blueColor);
-    cy.get(".large-2").find("a").eq("1").should("have.css", "background-color",COLORS.redColor);
-    cy.get (".large-2").find("a").last().should("have.css", "background-color",COLORS.greenColor);
+    cy.get(".large-2").find("a").first().should("have.css", "background-color",challengingDomPage.COLORS.blueColor);
+    cy.get(".large-2").find("a").eq("1").should("have.css", "background-color",challengingDomPage.COLORS.redColor);
+    cy.get (".large-2").find("a").last().should("have.css", "background-color",challengingDomPage.COLORS.greenColor);
     
   });
 
