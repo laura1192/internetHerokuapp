@@ -4,6 +4,7 @@ class DisappearingElementsPage {
         disappearingElementsTitle:"Disappearing Elements",
       linkName:"disappearing_elements",
       basePageTitle:"Welcome to the-internet",
+      
     };
     }
     

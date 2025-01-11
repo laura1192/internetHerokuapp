@@ -3,6 +3,7 @@ const { LOCATORS } = require("../../utils/locators");
 
 const option = "Option 2";
 const selected = "Selected";
+const upOption = "Option";
 describe("Dropdown", () => {
   it("Verify Dropdown Page ", () => {
     cy.visit("/");
@@ -21,7 +22,7 @@ describe("Dropdown", () => {
     cy.contains(dropdownPage.NAMES.dropdownPageLink).click();
     cy.get(LOCATORS.example)
       .find(dropdownPage.LOCATORS.dropdown)
-      .find("Option")
+      .find(upOption)
       .last()
       .should("not.have.attr", selected);
     cy.get(LOCATORS.example)
@@ -29,7 +30,7 @@ describe("Dropdown", () => {
       .select(option);
     cy.get(LOCATORS.example)
       .find(dropdownPage.LOCATORS.dropdown)
-      .find("Option")
+      .find(upOption)
       .last()
       .should("have.attr", selected);
   });
