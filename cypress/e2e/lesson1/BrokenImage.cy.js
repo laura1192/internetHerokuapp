@@ -8,9 +8,13 @@ describe("Broken Images", () => {
     cy.get(LOCATORS.heading).should("contain", basePage.NAMES.basePageTitle);
     cy.contains(brokenImagesPage.NAMES.brokenImagesTitle).click();
     cy.get(LOCATORS.example)
-      .find("h3")
+      .find(brokenImagesPage.NAMES.հ3)
       .should("contain", brokenImagesPage.NAMES.brokenImagesTitle);
-    cy.get(LOCATORS.example).find("img").should("be.visible");
-    cy.get(LOCATORS.example).find("img").should("have.length", 3);
+    cy.get(LOCATORS.example)
+      .find(brokenImagesPage.NAMES.img)
+      .should("be.visible");
+    cy.get(LOCATORS.example)
+      .find(brokenImagesPage.NAMES.img)
+      .should("have.length", 3);
   });
 });

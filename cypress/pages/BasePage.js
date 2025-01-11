@@ -1,6 +1,6 @@
 class BasePage {
-    NAMES = {
-      basePageTitle:"Welcome to the-internet",
+NAMES = {
+basePageTitle:"Welcome to the-internet",
     };
   }
   
