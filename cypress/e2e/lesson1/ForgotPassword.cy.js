@@ -7,7 +7,12 @@ let value;
 const label = "label";
 const email = "E-mail";
 
-describe("Forgot email form", () => {
+describe("Forgot Password", () => {
+    beforeEach(() => {
+      cy.visit("/");
+      cy.contains("Forgot Password").click();
+    });
+    
   it("Verify 'Email' page", () => {
     cy.visit("/");
     cy.contains(forgotPasswordPage.NAMES.forgotPasswordPageTitle).click();
@@ -30,11 +35,10 @@ describe("Forgot email form", () => {
       forgotPasswordPage.COLORS.blue
     );
   });
-})
+
 
   it("Verify unique emails input", () => {
-    cy.visit("/");
-    cy.contains(forgotPasswordPage.NAMES.forgotPasswordPageTitle).click();
+    
     cy.get(forgotPasswordPage.LOCATORS.email).type(randomEmail);
     cy.get(forgotPasswordPage.LOCATORS.email)
       .invoke("val")
@@ -47,3 +51,4 @@ describe("Forgot email form", () => {
       cy.get(forgotPasswordPage.LOCATORS.form).click()
       cy.get('h1').should("contain", "Internal Server Error")
 });
+})
