@@ -6,16 +6,15 @@ const randomEmail = `${generateRandomName(6)}"@gmail.com"`;
 let value;
 const label = "label";
 const email = "E-mail";
+const internalServerError="Internal Server Error"
 
 describe("Forgot Password", () => {
-    beforeEach(() => {
-      cy.visit("/");
-      cy.contains("Forgot Password").click();
-    });
-    
-  it("Verify 'Email' page", () => {
+  beforeEach(() => {
     cy.visit("/");
-    cy.contains(forgotPasswordPage.NAMES.forgotPasswordPageTitle).click();
+    cy.contains(forgotPasswordPage.NAMES.forgotPasswordLink).click();
+  });
+
+  it("Verify 'Email' page", () => {
     cy.get(LOCATORS.example).should(
       "contain",
       forgotPasswordPage.NAMES.forgotPasswordPageTitle
@@ -36,19 +35,17 @@ describe("Forgot Password", () => {
     );
   });
 
-
   it("Verify unique emails input", () => {
-    
     cy.get(forgotPasswordPage.LOCATORS.email).type(randomEmail);
     cy.get(forgotPasswordPage.LOCATORS.email)
       .invoke("val")
       .then((val) => {
         value = val;
       });
-      cy.then(()=>{
-        expect(value).to.eq(randomEmail)
-      })
-      cy.get(forgotPasswordPage.LOCATORS.form).click()
-      cy.get('h1').should("contain", "Internal Server Error")
+    cy.then(() => {
+      expect(value).to.eq(randomEmail);
+    });
+    cy.get(forgotPasswordPage.LOCATORS.form).click();
+    cy.get(forgotPasswordPage.LOCATORS.h1).should("contain", internalServerError);
+  });
 });
-})
