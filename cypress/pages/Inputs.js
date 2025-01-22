@@ -11,12 +11,6 @@ class Inputs {
     LOCATORS = {
         inputTypesNumber:'input[type="number"]'
        
-
-
-      
-       
-
-     
     };
 }
     export const inputs = new Inputs()
