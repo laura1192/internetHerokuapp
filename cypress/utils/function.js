@@ -8,3 +8,4 @@ export function generateRandomName(length) {
   }
   return result;
 }
+
