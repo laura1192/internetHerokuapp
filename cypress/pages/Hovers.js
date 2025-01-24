@@ -1,20 +1,13 @@
 class Hovers {
-    NAMES = {
-      hoversLink:"Hovers",
-      hoversTitle:"Hovers",
-      linkName:"hovers",
-    
-      
-    };
- 
-    LOCATORS = {
+  NAMES = {
+    hoversLink: "Hovers",
+    hoversTitle: "Hovers",
+    linkName: "hovers",
+  };
 
-     figure:".figure",
-     figCaption:".figcaption"
-
-      
-         
-     
-    };
+  LOCATORS = {
+    figure: ".figure",
+    figCaption: ".figcaption",
+  };
 }
-export const hovers = new Hovers ()
+export const hovers = new Hovers();
